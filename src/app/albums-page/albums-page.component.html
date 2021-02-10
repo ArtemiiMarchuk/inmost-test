@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="header__backButton" routerLink="">Back</div>
+  <input class="header__search" type="text" placeholder="Search Album" [(ngModel)]="searchStr">
+</div>
+<div class="albums" *ngIf="albums$ | async as albums; else loading">
+  <app-album *ngFor="let album of albums | search:searchStr" [album]="album"></app-album>
+  <div class="clear"></div>
+</div>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

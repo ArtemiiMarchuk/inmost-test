@@ -1,0 +1,12 @@
+<div class="alert-wrap" *ngIf="message">
+  <div
+    class="alert"
+    [ngClass]="{
+      'alert-like': type === 'like',
+      'alert-dislike': type == 'dislike'
+    }"
+  >
+    <p class="alert-text">{{message}}</p>
+    <p class="caption">{{type | titlecase}}</p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="album">
+  <img class="album__img" [src]="album.img" alt="">
+  <div class="album__info">
+    <div class="album__name">{{album.name}}</div>
+    <div class="album__artistName">{{album.artistName}}</div>
+    <div class="album__like" (click)="likeClickHandler(album.id)">
+      <img [src]="album.liked ? 'assets/img/like-active.svg' : 'assets/img/like.svg'" alt="like icon">
+    </div>
+  </div>
+</div>
+
+
