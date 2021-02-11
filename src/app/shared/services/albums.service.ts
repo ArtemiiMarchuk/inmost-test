@@ -43,27 +43,27 @@ export class AlbumsService {
             name: item.name,
             artistName: item.artist.name,
             id: item.mbid,
-            liked: this.isAlbumLiked(item.mbid)
+            liked: this.isAlbumLiked(item.name)
           };
         });
       })
     );
   }
 
-  isAlbumLiked(id: string): boolean {
+  isAlbumLiked(name: string): boolean {
     const likes = this.getLikedAlbums();
-    return !!likes.find(like => like === id);
+    return !!likes.find(like => like === name);
   }
 
-  addAlbumToLikes(id: string): void {
+  addAlbumToLikes(name: string): void {
     const likes = this.getLikedAlbums();
-    likes.push(id);
+    likes.push(name);
     this.setLikedAlbums(likes);
   }
 
-  removeAlbumFromLikes(id: string): void {
+  removeAlbumFromLikes(name: string): void {
     const likes = this.getLikedAlbums();
-    this.setLikedAlbums(likes.filter(like => like !== id));
+    this.setLikedAlbums(likes.filter(like => like !== name));
   }
 
   getLikedAlbums(): string[] {

@@ -1,10 +1,16 @@
-<div class="header">
-  <div class="header__backButton" routerLink="">Back</div>
-  <input class="header__search" type="text" placeholder="Search Album" [(ngModel)]="searchStr">
-</div>
-<div class="albums" *ngIf="albums$ | async as albums; else loading">
-  <app-album *ngFor="let album of albums | search:searchStr" [album]="album"></app-album>
-  <div class="clear"></div>
+<div *ngIf="albums$ | async as albums; else loading">
+  <div class="header">
+    <div class="header__backButton" routerLink="">Back</div>
+    <input class="header__search" type="text" placeholder="Search Album" [(ngModel)]="searchStr">
+    <div class="header__likes">
+      <img src="assets/img/like-active.svg" alt="like icon">
+      <span>{{getLikeAmount(albums)}}</span>
+    </div>
+  </div>
+  <div class="albums">
+    <app-album *ngFor="let album of albums | search:searchStr" [album]="album"></app-album>
+    <div class="clear"></div>
+  </div>
 </div>
 <ng-template #loading>
   <app-loading></app-loading>

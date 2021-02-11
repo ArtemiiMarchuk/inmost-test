@@ -3,7 +3,7 @@
   <div class="album__info">
     <div class="album__name">{{album.name}}</div>
     <div class="album__artistName">{{album.artistName}}</div>
-    <div class="album__like" (click)="likeClickHandler(album.id)">
+    <div class="album__like" (click)="likeClickHandler(album.name)">
       <img [src]="album.liked ? 'assets/img/like-active.svg' : 'assets/img/like.svg'" alt="like icon">
     </div>
   </div>

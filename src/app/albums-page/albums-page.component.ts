@@ -28,4 +28,7 @@ export class AlbumsPageComponent implements OnInit {
       }));
   }
 
+  getLikeAmount(albums: AlbumInterface[]): number {
+    return albums.filter(album => album.liked).length;
+  }
 }

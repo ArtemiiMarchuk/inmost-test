@@ -20,15 +20,15 @@ export class AlbumComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  likeClickHandler(id: string): void {
+  likeClickHandler(name: string): void {
     this.album.liked = !this.album.liked;
 
     if (this.album.liked) {
       this.alertService.like(this.album.name);
-      this.albumService.addAlbumToLikes(id);
+      this.albumService.addAlbumToLikes(name);
     } else {
       this.alertService.dislike(this.album.name);
-      this.albumService.removeAlbumFromLikes(id);
+      this.albumService.removeAlbumFromLikes(name);
     }
   }
 }
